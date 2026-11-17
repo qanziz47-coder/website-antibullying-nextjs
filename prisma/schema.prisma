@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Laporan { 
+  id            Int      @id @default(autoincrement())
+  kode          String   @unique @db.VarChar(30)
+  jenis         String   @db.VarChar(50)
+  kronologi     String   @db.Text
+  anonim        Boolean  @default(false)
+  nama_pelapor  String?  @db.VarChar(100)
+  kontak        String?  @db.VarChar(100)
+  bukti         String?  @db.VarChar(255)
+  status        String   @default("diterima") @db.VarChar(20)
+  balasan_admin String?  @db.Text
+  createdAt     DateTime @default(now()) @map("created_at")
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  username String @unique @db.VarChar(50)
+  password String @db.VarChar(255)
+}
+
+model Angket {
+  id            Int      @id @default(autoincrement())
+  kelas         String?  @db.VarChar(20)
+  pernahDibully Boolean?
+  jenisBullying String?  @db.VarChar(50)
+  tempat        String?  @db.VarChar(50)
+  createdAt     DateTime @default(now()) @map("created_at")
+}
