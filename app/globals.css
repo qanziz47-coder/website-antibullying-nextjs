@@ -52,3 +52,59 @@ body {
     rgba(0, 0, 0, 0.05) 30px
   );
 }
+
+
+/* Cookie Success Animation */
+
+.success-popup {
+  animation: popupEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.success-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #477c59;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 35px rgba(71, 124, 89, 0.25);
+  animation: circlePop 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.success-check {
+  width: 52px;
+  height: 52px;
+  stroke-dasharray: 45;
+  stroke-dashoffset: 45;
+  animation: checkDraw 0.45s ease forwards 0.35s;
+}
+
+@keyframes popupEnter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes circlePop {
+  0% {
+    transform: scale(0.5);
+  }
+  70% {
+    transform: scale(1.12);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes checkDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
