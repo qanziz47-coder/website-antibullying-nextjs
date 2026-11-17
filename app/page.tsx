@@ -60,12 +60,26 @@ export default function Home() {
     laki: { kasus: 7586, perempuan: 6714, laki: 864 }, 
   };
 
-  const videos = [
-    { title: "Bingung Cara Menghadapinya?", desc: "Tonton video singkat ini. Ada langkah-langkah seru dan mudah yang bisa kamu lakukan jika melihat atau mengalami perundungan.", url: "https://www.youtube.com/embed/kMQzcsaRtyk", link: "https://youtu.be/kMQzcsaRtyk" },
-    { title: "Kenali Cyberbullying", desc: "Pelajari bagaimana cyberbullying terjadi di media sosial dan bagaimana cara melindungi diri dari serangannya.", url: "https://www.youtube.com/embed/6M2E7fKq3wA", link: "https://youtu.be/6M2E7fKq3wA" },
-    { title: "Menjadi Pelindung, Bukan Penonton", desc: "Saksi (bystander) punya kekuatan besar untuk menghentikan bullying. Pelajari cara membantu korban dengan aman.", url: "https://www.youtube.com/embed/1s3Hq2wYq2s", link: "https://youtu.be/1s3Hq2wYq2s" }
-  ];
-
+const videos = [
+  {
+    title: "Bingung Cara Menghadapinya?",
+    desc: "Tonton video singkat ini. Ada langkah-langkah seru dan mudah yang bisa kamu lakukan jika melihat atau mengalami perundungan.",
+    url: "https://www.youtube.com/embed/kMQzcsaRtyk",
+    link: "https://youtu.be/kMQzcsaRtyk",
+  },
+  {
+    title: "Kenali Cyberbullying",
+    desc: "Pelajari bagaimana cyberbullying terjadi di media sosial dan bagaimana cara melindungi diri dari serangannya.",
+    url: "https://www.youtube.com/embed/k_CBybYkdWs",
+    link: "https://youtu.be/k_CBybYkdWs",
+  },
+  {
+    title: "Menjadi Pelindung, Bukan Penonton",
+    desc: "Saksi (bystander) punya kekuatan besar untuk menghentikan bullying. Pelajari cara membantu korban dengan aman.",
+    url: "https://www.youtube.com/embed/am3sGO12f6Q",
+    link: "https://youtu.be/am3sGO12f6Q",
+  },
+];
   const nextVideo = () => setCurrentVideo((prev) => (prev + 1) % videos.length);
   const prevVideo = () => setCurrentVideo((prev) => (prev - 1 + videos.length) % videos.length);
 
