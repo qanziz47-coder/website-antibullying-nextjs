@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     title: "STOPBULLY | Berani Bersuara",
     description:
       "Bersama menciptakan lingkungan sekolah yang aman dan bebas perundungan.",
-    images: ["/og-antibullying.png"],
+    images: ["/img/aduh.png"],
   },
 };
 
