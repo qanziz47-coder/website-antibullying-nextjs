@@ -257,7 +257,7 @@ const videos = [
           </div>
           <div className="lg:w-1/2">
             <div className="border-4 border-white shadow-xl">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Perempuan Berdaya" className="w-full h-[450px] object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+              <img src="/img/perempuan-kuat.jpg" alt="Perempuan Berdaya" className="w-full h-[450px] object-cover grayscale hover:grayscale-0 transition-all duration-500" />
             </div>
           </div>
         </motion.div>
@@ -270,7 +270,7 @@ const videos = [
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="container mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
             <div className="border-4 border-white shadow-xl">
-              <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=800&auto=format&fit=crop" alt="Dukungan Laki-laki" className="w-full h-[450px] object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+              <img src="/img/laki-laki-kuat.jpg" alt="Dukungan Laki-laki" className="w-full h-[450px] object-cover grayscale hover:grayscale-0 transition-all duration-500" />
             </div>
           </div>
           <div className="lg:w-1/2 space-y-6">
