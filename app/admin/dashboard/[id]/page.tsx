@@ -3,35 +3,20 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { revalidatePath } from "next/cache";
-import { Suspense } from "react";
-export const dynamic = "force-dynamic";
+
 const prisma = new PrismaClient();
 
-// 1. Buat Komponen Utama yang dibungkus Suspense (Mencegah Error Prerender Vercel)
 export default async function DetailLaporan({ params }: { params: Promise<{ id: string }> }) {
+  // 1. Await params dengan benar sesuai standar Next.js 15
   const resolvedParams = await params;
-  
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-[#fdfbf7] font-serif">
-        <h1 className="text-xl font-bold text-slate-600">Memuat lembar investigasi...</h1>
-      </div>
-    }>
-      <DetailContent idString={resolvedParams.id} />
-    </Suspense>
-  );
-}
+  const id = parseInt(resolvedParams.id);
 
-// 2. Pindahkan logika utama ke komponen terpisah di dalam file yang sama
-async function DetailContent({ idString }: { idString: string }) {
-  const id = parseInt(idString);
-
-  // Cek Login
+  // 2. Cek Login via cookies
   const cookieStore = await cookies();
   const session = cookieStore.get("admin_session");
   if (!session) redirect("/login");
 
-  // Ambil data laporan berdasarkan ID
+  // 3. Ambil data laporan berdasarkan ID dari Database
   const laporan = await prisma.laporan.findUnique({
     where: { id: id },
   });
@@ -44,7 +29,7 @@ async function DetailContent({ idString }: { idString: string }) {
     );
   }
 
-  // Fungsi Server Action untuk Menyimpan Perubahan
+  // 4. Fungsi Server Action untuk Menyimpan Perubahan
   async function simpanPerubahan(formData: FormData) {
     "use server";
     
@@ -66,7 +51,7 @@ async function DetailContent({ idString }: { idString: string }) {
   return (
     <div className="min-h-screen bg-[#fdfbf7] font-serif text-slate-800 py-10 px-4 relative overflow-hidden">
       
-      {/* Ornamen Latar Belakang (Titik-titik halus) */}
+      {/* Ornamen Latar Belakang */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
 
       <div className="max-w-3xl mx-auto relative z-10">
