@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { Suspense } from "react";
-
+export const dynamic = "force-dynamic";
 const prisma = new PrismaClient();
 
 // 1. Buat Komponen Utama yang dibungkus Suspense (Mencegah Error Prerender Vercel)
