@@ -12,9 +12,28 @@ const lora = Lora({
   variable: "--font-lora",
 });
 export const metadata: Metadata = {
-  title: "AntiBullying — Sistem Pelaporan",
-  description: "Website pelaporan perundungan sekolah",
+  title: "website anti pembullyian | STOPBULLY",
+  description: "website ini memberikan edukasi dan juga memberikan kepada korban untuk melapor kepada pihak bersangkutan yang terpercaya",
+  metadataBase: new URL("https://antibullying.hafzdev.web.id/"), 
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "AntiBullying | Website",
+    description: "website ini memberikan edukasi dan juga memberikan kepada korban untuk melapor kepada pihak bersangkutan yang terpercaya",
+    url: "https://antibullying.hafzdev.web.id/",
+    siteName: "HafzDev",
+    locale: "id_ID",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HafzDev | Developer",
+    description: "Portofolio Fajri Hafiz. Menjelajahi dunia web, IoT, dan keamanan siber.",
+  },
 };
+
+
 
 export default function RootLayout({
   children,
