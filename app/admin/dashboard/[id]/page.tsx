@@ -7,31 +7,46 @@ import { Suspense } from "react";
 
 const prisma = new PrismaClient();
 
-// 1. Komponen Utama (Membungkus dengan Suspense untuk mengatasi error prerender Vercel)
-export default async function DetailLaporan({ params }: { params: Promise<{ id: string }> }) {
-  const resolvedParams = await params;
-  
+// Komponen utama
+export default function DetailLaporan({
+  params
+}: {
+  params: Promise<{ id: string }>
+}) {
   return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center bg-[#fdfbf7] font-serif">
-        <h1 className="text-xl font-bold text-slate-600">Memuat lembar investigasi...</h1>
-      </div>
-    }>
-      <DetailContent idString={resolvedParams.id} />
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-[#fdfbf7] font-serif">
+          <h1 className="text-xl font-bold text-slate-600">
+            Memuat lembar investigasi...
+          </h1>
+        </div>
+      }
+    >
+      <DetailContent params={params} />
     </Suspense>
   );
 }
 
-// 2. Komponen Isi (Semua logika async, cookies, params, dan database dipindah ke sini)
-async function DetailContent({ idString }: { idString: string }) {
-  const id = parseInt(idString);
+async function DetailContent({
+  params
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id: idString } = await params;
+  const id = parseInt(idString, 10);
+
+  if (!Number.isInteger(id) || id <= 0) {
+    return <div>Laporan tidak ditemukan.</div>;
+  }
 
   // Cek Login
   const cookieStore = await cookies();
   const session = cookieStore.get("admin_session");
+
   if (!session) redirect("/login");
 
-  // Ambil data laporan berdasarkan ID
+  // Ambil data laporan
   const laporan = await prisma.laporan.findUnique({
     where: { id: id },
   });
