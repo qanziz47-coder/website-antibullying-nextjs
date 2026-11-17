@@ -3,20 +3,35 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { revalidatePath } from "next/cache";
+import { Suspense } from "react";
 
 const prisma = new PrismaClient();
 
+// 1. Buat Komponen Utama yang dibungkus Suspense (Mencegah Error Prerender Vercel)
 export default async function DetailLaporan({ params }: { params: Promise<{ id: string }> }) {
-  // 1. Await params (karena Next.js 15+ menjadikannya Promise)
   const resolvedParams = await params;
-  const id = parseInt(resolvedParams.id);
+  
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center bg-[#fdfbf7] font-serif">
+        <h1 className="text-xl font-bold text-slate-600">Memuat lembar investigasi...</h1>
+      </div>
+    }>
+      <DetailContent idString={resolvedParams.id} />
+    </Suspense>
+  );
+}
 
-  // 2. Cek Login
+// 2. Pindahkan logika utama ke komponen terpisah di dalam file yang sama
+async function DetailContent({ idString }: { idString: string }) {
+  const id = parseInt(idString);
+
+  // Cek Login
   const cookieStore = await cookies();
   const session = cookieStore.get("admin_session");
   if (!session) redirect("/login");
 
-  // 3. Ambil data laporan berdasarkan ID
+  // Ambil data laporan berdasarkan ID
   const laporan = await prisma.laporan.findUnique({
     where: { id: id },
   });
@@ -29,7 +44,7 @@ export default async function DetailLaporan({ params }: { params: Promise<{ id: 
     );
   }
 
-  // 4. Fungsi Server Action untuk Menyimpan Perubahan
+  // Fungsi Server Action untuk Menyimpan Perubahan
   async function simpanPerubahan(formData: FormData) {
     "use server";
     
@@ -44,7 +59,6 @@ export default async function DetailLaporan({ params }: { params: Promise<{ id: 
       },
     });
 
-    // Refresh halaman agar data terbaru langsung muncul
     revalidatePath(`/admin/dashboard/${id}`);
     revalidatePath("/admin/dashboard");
   }
