@@ -1,19 +1,18 @@
 "use client";
 
 import Link from "next/link";
-
 export default function Footer() {
   return (
     <footer className="bg-[#fdfbf7] text-slate-800 border-t-4 border-double border-slate-800 pt-12 pb-6 mt-12 relative overflow-hidden">
-      
+
       {/* Ornamen Latar Belakang */}
       <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
-        
+
         {/* Bagian Atas Footer (3 Kolom) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          
+
           {/* Kolom 1: Identitas */}
           <div className="border-l-4 border-slate-800 pl-4">
             <h3 className="font-serif font-black text-2xl text-[#1e3a5f] uppercase tracking-tighter mb-3">

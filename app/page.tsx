@@ -111,7 +111,7 @@ const videos = [
     <main className="min-h-screen bg-[#fdfbf7] font-serif text-slate-800 overflow-x-hidden">
       <Navbar />
 
-      {/* ================= 1. HERO SECTION ================= */}
+      {/* ================= HERO SECTION ================= */}
       <section 
         className="relative w-full min-h-screen flex items-center pt-20 pb-10"
         style={{
@@ -187,7 +187,7 @@ const videos = [
 
       <Divider topColor="#1e3a5f" bottomColor="#fdfbf7" />
 
-      {/* ================= 2. EDUKASI ================= */}
+      {/* ================= EDUKASI ================= */}
       <section id="jenis" className="py-20 bg-[#fdfbf7] bg-dots relative">
         <div className="container mx-auto px-6 text-center mb-16 relative z-10">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="relative inline-block">
@@ -237,7 +237,7 @@ const videos = [
 
       <Divider flip={true} topColor="#fdfbf7" bottomColor="#ffffff" />
 
-      {/* ================= 3. PERLINDUNGAN PEREMPUAN ================= */}
+      {/* ================= PERLINDUNGAN PEREMPUAN ================= */}
       <section className="py-24 bg-white bg-stripes relative">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="container mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 relative z-10">
           <div className="lg:w-1/2 space-y-6">
@@ -265,7 +265,7 @@ const videos = [
 
       <Divider topColor="#ffffff" bottomColor="#fdfbf7" />
 
-      {/* ================= 4. PERLINDUNGAN LAKI-LAKI ================= */}
+      {/* ================= PERLINDUNGAN LAKI-LAKI ================= */}
       <section className="py-24 bg-[#fdfbf7]">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp} className="container mx-auto px-6 flex flex-col-reverse lg:flex-row items-center gap-16">
           <div className="lg:w-1/2">
@@ -293,7 +293,7 @@ const videos = [
 
       <Divider topColor="#fdfbf7" bottomColor="#1e3a5f" />
 
-      {/* ================= 5. VIDEO SLIDER ================= */}
+      {/* ================= VIDEO SLIDER ================= */}
       <section className="py-20 bg-[#1e3a5f] overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="relative flex flex-col lg:flex-row items-center gap-12">
@@ -331,7 +331,7 @@ const videos = [
 
       <Divider topColor="#1e3a5f" bottomColor="#fdfbf7" />
 
-      {/* ================= 6. DATA KEMENTERIAN ================= */}
+      {/* ================= DATA KEMENTERIAN ================= */}
       <section className="py-24 bg-[#fdfbf7] bg-lines relative">
         <div className="container mx-auto px-6 relative z-10">
           <div className="mb-10 border-b-2 border-slate-800 pb-4">
@@ -411,7 +411,7 @@ const videos = [
 
       <Divider flip={true} topColor="#fdfbf7" bottomColor="#fdfbf7" />
 
-      {/* ================= 7. BANTUAN DARURAT ================= */}
+      {/* ================= BANTUAN DARURAT ================= */}
       <section className="py-24 bg-[#fdfbf7] relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
 
@@ -437,7 +437,7 @@ const videos = [
         </motion.div>
       </section>
 
-      {/* ================= 8. POP-UP MODAL EDUKASI ================= */}
+      {/* ================= POP-UP MODAL EDUKASI ================= */}
       {selectedJenis && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity">
           <motion.div initial={{ opacity: 0, scale: 0.9, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} className="bg-[#fdfbf7] p-8 max-w-lg w-full shadow-2xl relative border border-gray-300">
