@@ -2,6 +2,8 @@
 
 **Platform Pelaporan dan Edukasi Anti-Perundungan**
 
+<img src="bullying.png"/>
+
 [![Website](https://img.shields.io/badge/Website-STOPBULLY-blue?style=for-the-badge)](https://antibullying.hafzdev.web.id/)
 [![Next.js](https://img.shields.io/badge/Next.js-16.4.6-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![Prisma](https://img.shields.io/badge/Prisma-6.19.3-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io/)
